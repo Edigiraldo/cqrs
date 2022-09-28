@@ -21,8 +21,8 @@ func NewPostgressRepository(url string) (*PostgressRepository, error) {
 	return &PostgressRepository{db}, err
 }
 
-func (repo *PostgressRepository) Close() error {
-	return repo.db.Close()
+func (repo *PostgressRepository) Close() {
+	repo.db.Close()
 }
 
 func (repo *PostgressRepository) InsertFeed(ctx context.Context, feed *models.Feed) error {
