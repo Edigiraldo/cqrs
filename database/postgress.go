@@ -8,31 +8,31 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type PostgressRepository struct {
+type PostgresRepository struct {
 	db *sql.DB
 }
 
-func NewPostgressRepository(url string) (*PostgressRepository, error) {
-	db, err := sql.Open("postgress", url)
+func NewPostgresRepository(url string) (*PostgresRepository, error) {
+	db, err := sql.Open("postgres", url)
 	if err != nil {
 		return nil, err
 	}
 
-	return &PostgressRepository{db}, err
+	return &PostgresRepository{db}, err
 }
 
-func (repo *PostgressRepository) Close() {
+func (repo *PostgresRepository) Close() {
 	repo.db.Close()
 }
 
-func (repo *PostgressRepository) InsertFeed(ctx context.Context, feed *models.Feed) error {
+func (repo *PostgresRepository) InsertFeed(ctx context.Context, feed *models.Feed) error {
 	query := "INSERT INTO feeds (id, title, description) VALUES ($1, $2, $3)"
 	_, err := repo.db.ExecContext(ctx, query, feed.Id, feed.Title, feed.Description, feed.CreatedAt)
 
 	return err
 }
 
-func (repo *PostgressRepository) ListFeeds(ctx context.Context) ([]*models.Feed, error) {
+func (repo *PostgresRepository) ListFeeds(ctx context.Context) ([]*models.Feed, error) {
 	query := "SELECT id, title, description, created_at FROM feeds"
 	rows, err := repo.db.QueryContext(ctx, query)
 	if err != nil {
