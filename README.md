@@ -1,5 +1,7 @@
 # CQRS
 
+![CQRS](./images/CQRS.png "Application diagram")
+
 To run the application:
 
 ```console
