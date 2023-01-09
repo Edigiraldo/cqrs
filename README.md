@@ -6,13 +6,17 @@ To run the application:
   docker-compose up -d --build
 ```
 
-Open a WebSocket connection, every time a resource is created you will be notified:
+Open a WebSocket connection. Every time a resource is created you will get notified:
 
 ```console
   localhost:8080/ws
 ```
 
+![WebSockets](./images/get_notified_of_new_feeds.png "Every time a resource is created you will get notified")
+
 Create some feeds:
+
+![WebSockets](./images/create_feed.png "Create some feeds")
 
 - [POST] localhost:8080/feeds
 
@@ -104,10 +108,14 @@ Create some feeds:
   }
   ```
 
-Get all the feed you have created:
+Get all the feeds you have created:
+
+![WebSockets](./images/list_feeds.png "Get all the feeds you have created")
 
 - [GET] localhost:8080/feeds
 
-And now search feeds that have any topic of your interest:
+And now look for some interesting feed for you:
 
-- localhost:8080/search?q=softwar
+![WebSockets](./images/search_feeds.png "Look for some interesting feed for you")
+
+- [GET] localhost:8080/search?q=softwar
