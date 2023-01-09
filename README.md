@@ -46,18 +46,18 @@ Create some feeds:
   ```json
   {
     "title": "The Best Places to Visit in South America: A Guide to the Continent's Top Destinations",
-    "description": "Find a list of the top places to visit in South America and a
-    ```dd them to your travel bucket list"
+    "description": "Find a list of the top places to visit in South America and add them to your travel bucket list"
   }
+  ```
 
 - [POST] localhost:8080/feeds
 
   ```json
   {
     "title": "The Future of Work: How Artificial Intelligence and Automation Are Changing the Landscape",
-    "description": "Learn about the ways in which artificial intelligence and a
-    ```utomation are changing the world of work and what it means for the future"
+    "description": "Learn about the ways in which artificial intelligence and automation are changing the world of work and what it means for the future"
   }
+  ```
 
 - [POST] localhost:8080/feeds
 
