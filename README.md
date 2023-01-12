@@ -1,6 +1,26 @@
 # CQRS
 
+This project presents an API that allows you to store feeds with a title and description.
+Feeds can be created, listed, searched by title or description (whithout having to use
+the same exact words), all using HTTP REST. Also, you can establish a web
+socket connection, which will allow you to be notified every time a new feed is created.
+To see more on its use, see the instructions section below.
+
+An important feature of this API is the fact that it uses a CQRS(Command Query Responsibility
+Segregation) architecture, which allows the read and write services to scale independently.
+
 ![CQRS](./images/CQRS.png "Application diagram")
+
+The entry point for the API is exposed by an NGINX server, which redirects requests from the
+user to 3 different services: The feed, query and pusher services. The feed service will receive
+the requests to create a feed. The query service will handle any request to search for
+a feed or to list all created feeds. Also, the pusher service will be in charge of web sockets
+connections to notify the user of a new feed creation. There is also a Postgres DB to store all
+feeds and an ElasticSearch cluster to index every feed for subsequent searches. Finally, a central
+NATS broker allows the feed service to publish each created feed and notify to ElasticSearch
+and the pusher service.
+
+## Instructions
 
 To run the application:
 
